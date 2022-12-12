@@ -3,11 +3,14 @@ package com.example.tictactoe_group2
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
     var gamerPos = 0
@@ -29,6 +32,51 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_ly, null)
+
+        val gamerDialogView = layoutInflater.inflate(R.layout.input_name_dialog_ly, null)
+
+        val name1 = findViewById<TextView>(R.id.name1)
+        val name2 = findViewById<TextView>(R.id.name2)
+
+
+        //ilova iwga tuwiwi bilan ochiladi
+        MaterialAlertDialogBuilder(this)
+            .setTitle("O'yinchilar nomi")
+            .setView(gamerDialogView)
+           .setCancelable(false)
+
+            .setPositiveButton("Saqlash") { dialog, which ->
+                val gam1Nam = gamerDialogView.findViewById<TextInputEditText>(R.id.edit_gamer_1).text.toString()
+                val gam2Nam = gamerDialogView.findViewById<TextInputEditText>(R.id.edit_gamer_2).text.toString()
+                name1.text = gam1Nam
+                name2.text = gam2Nam
+                // Respond to positive button press
+                dialog.dismiss()
+            }.show()
+
+
+
+
+       val dialog =  MaterialAlertDialogBuilder(this)
+            .setTitle("My title")
+            .setMessage("Bla Bla bla bla fssg")
+           .setView(dialogView)
+            .setNeutralButton("no") { dialog, which ->
+                // Respond to neutral button press
+                showToast("setNeutralButton")
+            }
+            .setNegativeButton("cancel") { dialog, which ->
+                // Respond to negative button press
+                showToast("setNegativeButton")
+            }
+            .setPositiveButton("ok") { dialog, which ->
+                // Respond to positive button press
+                dialog.dismiss()
+                showToast("setPositiveButton")
+            }
+
+
         refreshBtn = findViewById(R.id.refresh)
 
         text1 = findViewById(R.id.text1)
@@ -41,6 +89,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         refreshBtn.setOnClickListener {
+            dialog.show()
             firstGamerList.clear()
             secondGamerList.clear()
             finByList.forEach {

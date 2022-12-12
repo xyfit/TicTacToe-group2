@@ -18,12 +18,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/name1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                tools:text="Gamer1"
+                android:textStyle="bold"
+                android:textSize="26sp"
+                android:textColor="@color/white"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+            <TextView
+                android:id="@+id/name2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                tools:text="Gamer2"
+                android:textStyle="bold"
+                android:textSize="26sp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/text1"
@@ -47,6 +85,8 @@
                 android:textSize="40sp"
                 android:textStyle="bold" />
         </LinearLayout>
+        </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
